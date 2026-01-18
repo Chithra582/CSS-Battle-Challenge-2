@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flip The Coin</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>FLIP THE COIN</h1>
+
+      <div class="coin-container">
+        <div class="coin" id="coin">
+          <div class="coin-face coin-heads">H</div>
+          <div class="coin-face coin-tails">T</div>
+        </div>
+      </div>
+
+      <div id="result"></div>
+
+      <button class="flip-btn" id="flipBtn">Flip Coin</button>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-label">Heads</div>
+          <div class="stat-value" id="headsCount">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Tails</div>
+          <div class="stat-value" id="tailsCount">0</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Total</div>
+          <div class="stat-value" id="totalCount">0</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Select DOM elements
+      const flipBtn = document.getElementById("flipBtn");
+      const coin = document.getElementById("coin");
+      const result = document.getElementById("result");
+      const headsCount = document.getElementById("headsCount");
+      const tailsCount = document.getElementById("tailsCount");
+      const totalCount = document.getElementById("totalCount");
+
+      // Initialize counters
+      let heads = 0;
+      let tails = 0;
+      let total = 0;
+
+      // Add event listener to the button
+      flipBtn.addEventListener("click", function () {
+        // Disable button during flip
+        flipBtn.disabled = true;
+
+        // Remove previous result animation
+        result.classList.remove("show");
+        result.textContent = "";
+
+        // Add flip animation to coin
+        coin.classList.add("flip");
+
+        // Generate random result
+        const flipResult = Math.random() < 0.5 ? "Heads" : "Tails";
+
+        // Wait for animation to complete
+        setTimeout(() => {
+          // Remove flip animation
+          coin.classList.remove("flip");
+
+          // Display result
+          result.textContent = flipResult;
+          result.classList.add("show");
+
+          // Update statistics
+          total++;
+          if (flipResult === "Heads") {
+            heads++;
+            headsCount.textContent = heads;
+          } else {
+            tails++;
+            tailsCount.textContent = tails;
+          }
+          totalCount.textContent = total;
+
+          // Re-enable button
+          flipBtn.disabled = false;
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
