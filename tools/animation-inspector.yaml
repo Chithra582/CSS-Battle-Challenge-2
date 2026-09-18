@@ -1,0 +1,24 @@
+name: animation-inspector
+description: Inspects and describes the CSS animation properties used in the coin flip challenge, including transform values, transition timing, and 3D rendering context.
+version: "1.0.0"
+input_schema:
+  type: object
+  properties:
+    property:
+      type: string
+      description: "Specific CSS property to inspect (e.g., perspective, rotateY, backface-visibility)"
+    element:
+      type: string
+      description: "Target HTML element or CSS class to inspect (e.g., .coin, .coin-face)"
+  required: []
+output_schema:
+  type: object
+  properties:
+    property:
+      type: string
+    value:
+      type: string
+    effect:
+      type: string
+    browser_support:
+      type: string

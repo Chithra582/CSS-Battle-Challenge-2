@@ -1,0 +1,24 @@
+name: snippet-generator
+description: Generates or retrieves CSS and JavaScript code snippets from the Flip The Coin challenge solution for explanation or reuse purposes.
+version: "1.0.0"
+input_schema:
+  type: object
+  properties:
+    concept:
+      type: string
+      description: "CSS/JS concept to generate a snippet for (e.g., 3d-flip, backface, event-listener)"
+    format:
+      type: string
+      enum: [css, javascript, html]
+      description: "Output format for the snippet"
+  required:
+    - concept
+output_schema:
+  type: object
+  properties:
+    concept:
+      type: string
+    snippet:
+      type: string
+    explanation:
+      type: string

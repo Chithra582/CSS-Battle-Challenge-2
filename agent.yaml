@@ -1,0 +1,50 @@
+spec_version: "0.1.0"
+name: "css-battle-challenge-agent"
+version: "1.0.0"
+description: >
+  AI agent for CSS Battle Challenge 2 — an interactive CSS/JS coin flip simulator
+  with 3D flip animation, heads/tails result tracking, and flip statistics. Assists
+  with CSS animation techniques, DOM manipulation patterns, and challenge walkthroughs.
+author: "Chithra R"
+license: "MIT"
+model:
+  preferred: "gemini-2.0-flash"
+  fallback:
+    - "gpt-4o-mini"
+    - "claude-3-5-sonnet"
+  constraints:
+    temperature: 0.2
+    max_tokens: 4096
+skills:
+  - css-animation-guide
+  - challenge-walkthrough
+  - dom-interaction-explainer
+tools:
+  - animation-inspector
+  - challenge-navigator
+  - snippet-generator
+compliance:
+  risk_tier: standard
+  frameworks:
+    - gdpr
+  data_governance:
+    pii_handling: redact
+    data_classification: internal
+  recordkeeping:
+    audit_logging: true
+    log_format: structured_json
+  supervision:
+    human_in_the_loop: conditional
+    override_capability: true
+    kill_switch: true
+tags:
+  - css
+  - css-battle
+  - animation
+  - javascript
+  - coin-flip
+  - frontend
+  - challenge
+metadata:
+  domain: "developer-tools"
+  category: "Developer tools"

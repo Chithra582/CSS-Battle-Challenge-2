@@ -1,0 +1,25 @@
+name: challenge-navigator
+description: Navigates the CSS Battle Challenge 2 solution structure, returning descriptions of each file, HTML element, or JavaScript function on request.
+version: "1.0.0"
+input_schema:
+  type: object
+  properties:
+    target:
+      type: string
+      description: "File, element, or function to navigate to (e.g., index.html, .coin-face, flipCoin)"
+    layer:
+      type: string
+      enum: [html, css, js, all]
+      description: "Filter by code layer"
+  required: []
+output_schema:
+  type: object
+  properties:
+    target:
+      type: string
+    layer:
+      type: string
+    description:
+      type: string
+    code_snippet:
+      type: string
